@@ -9,9 +9,6 @@ selección de las n variables más relevantes usando una prueba f.
 # pylint: disable=invalid-name
 # pylint: disable=unsubscriptable-object
 
-import pandas as pd
-
-
 def pregunta_01():
     """
     Carga de datos.
@@ -56,6 +53,7 @@ def pregunta_02():
     # Retorne `X_train`, `X_test`, `y_train` y `y_test`
     return X_train, X_test, y_train, y_test
 
+
 def pregunta_03():
     """
     Especificación del pipeline y entrenamiento
@@ -85,7 +83,7 @@ def pregunta_03():
                 make_column_transformer(
                     (
                         OneHotEncoder(),
-                        make_column_selector(dtype_include='object'), #Prueba si la columna es un String treaer nombres
+                        ['smoker','sex','region'], #Prueba si la columna es un String treaer nombres
                     ),
                     remainder='passthrough',
                 ),
