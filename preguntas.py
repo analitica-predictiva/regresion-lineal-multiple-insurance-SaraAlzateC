@@ -8,6 +8,7 @@ selección de las n variables más relevantes usando una prueba f.
 """
 # pylint: disable=invalid-name
 # pylint: disable=unsubscriptable-object
+import pandas as pd
 
 def pregunta_01():
     """
