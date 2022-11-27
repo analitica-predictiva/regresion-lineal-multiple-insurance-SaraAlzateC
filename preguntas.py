@@ -17,20 +17,22 @@ def pregunta_01():
     -------------------------------------------------------------------------------------
     """
     # Lea el archivo `insurance.csv` y asignelo al DataFrame `df`
-    df = pd.read_csv("insurance.csv")
+    df = pd.read_csv("insurance.csv", sep=",")
 
     # Asigne la columna `charges` a la variable `y`.
-    y = df["charges"].to_numpy().reshape(-1,1)
+    y = df["charges"]
 
     # Asigne una copia del dataframe `df` a la variable `X`.
     X = pd.read_csv("insurance.csv")
 
     # Remueva la columna `charges` del DataFrame `X`.
-    X.drop("charges", inplace= True, axis=1) 
+    X.drop(["charges"], inplace= True, axis=1) 
 
     # Retorne `X` y `y`
     return X, y
+X, y = pregunta_01()
 
+print(y.shape)
 def pregunta_02():
     """
     Preparación de los conjuntos de datos.
