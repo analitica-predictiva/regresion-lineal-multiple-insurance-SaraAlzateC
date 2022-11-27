@@ -8,6 +8,7 @@ selección de las n variables más relevantes usando una prueba f.
 """
 # pylint: disable=invalid-name
 # pylint: disable=unsubscriptable-object
+
 import pandas as pd
 
 def pregunta_01():
@@ -72,7 +73,7 @@ def pregunta_03():
    
    
    
-    from sklearn import make_column_selector, make_column_transformer, SelectKBest, f_regression, LinearRegression, GridSearchCV, Pipeline, OneHotEncoder       
+    from sklearn import make_column_transformer, SelectKBest, f_regression, LinearRegression, GridSearchCV, Pipeline, OneHotEncoder       
    
     pipeline = Pipeline(
         steps=[
