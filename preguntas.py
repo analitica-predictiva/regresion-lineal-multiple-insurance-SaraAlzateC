@@ -17,7 +17,7 @@ def pregunta_01():
     -------------------------------------------------------------------------------------
     """
     # Lea el archivo `insurance.csv` y asignelo al DataFrame `df`
-    df = pd.read_csv("insurance.csv", sep=",")
+    df = pd.read_csv("insurance.csv")
 
     # Asigne la columna `charges` a la variable `y`.
     y = df["charges"]
@@ -45,7 +45,7 @@ def pregunta_02():
 
     # Divida los datos de entrenamiento y prueba. La semilla del generador de números
     # aleatorios es 12345. Use 300 patrones para la muestra de prueba.
-    (X_train, X_test, y_train, y_test) = train_test_split(
+    (X_train, X_test, y_train, y_test,) = train_test_split(
         X,
         y,
         test_size=300,
@@ -98,7 +98,7 @@ def pregunta_03():
             # características más importantes. Utilice la función f_regression.
             (
                 "selectKBest",
-                SelectKBest(score_func=f_regression)
+                SelectKBest(score_func=f_regression),
             ),
             # Paso 3: Construya un modelo de regresión lineal.
             (
@@ -114,7 +114,7 @@ def pregunta_03():
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
     param_grid = {
-        'dic_select':list(range(1, 12)),
+        'dic_select':list(range(1,12)),
     }
 
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
