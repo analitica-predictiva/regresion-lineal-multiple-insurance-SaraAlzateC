@@ -75,7 +75,7 @@ def pregunta_03():
    
    
     from sklearn.compose import make_column_selector, make_column_transformer
-    from sklearn.feature_selection import SelectKBest, f_regression, 
+    from sklearn.feature_selection import SelectKBest, f_regression
     from sklearn.linear_model import LinearRegression
     from sklear.model_selection GridSearchCV
     from sklearn.pipeline import Pipeline
