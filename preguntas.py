@@ -75,7 +75,11 @@ def pregunta_03():
    
    
     from sklearn.compose import make_column_selector, make_column_transformer
-    from sklearn import SelectKBest, f_regression, LinearRegression, GridSearchCV, Pipeline, OneHotEncoder       
+    from sklearn.feature_selection import SelectKBest, f_regression, 
+    from sklearn.linear_model import LinearRegression
+    from sklear.model_selection GridSearchCV
+    from sklearn.pipeline import Pipeline
+    from sklearn.preprocessing import OneHotEncoder
    
     pipeline = Pipeline(
         steps=[
@@ -87,7 +91,7 @@ def pregunta_03():
                 make_column_transformer(
                     (
                         OneHotEncoder(),
-                        ['smoker','sex','region'], #Prueba si la columna es un String treaer nombres
+                        make_column_selector(dtype_include=object), #Prueba si la columna es un String treaer nombres
                     ),
                     remainder='passthrough',
                 ),
