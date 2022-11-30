@@ -23,14 +23,13 @@ def pregunta_01():
     y = df["charges"]
 
     # Asigne una copia del dataframe `df` a la variable `X`.
-    X = pd.read_csv("insurance.csv")
+    X = df.copy(deep=Flase)
 
     # Remueva la columna `charges` del DataFrame `X`.
-    X.drop(["charges"], inplace= True, axis=1) 
+    X.drop("charges", inplace= True, axis=1) 
 
     # Retorne `X` y `y`
     return X, y
-X, y = pregunta_01()
 
 print(y.shape)
 def pregunta_02():
@@ -47,7 +46,7 @@ def pregunta_02():
 
     # Divida los datos de entrenamiento y prueba. La semilla del generador de números
     # aleatorios es 12345. Use 300 patrones para la muestra de prueba.
-    (X_train, X_test, y_train, y_test,) = train_test_split(
+    (X_train, X_test, y_train, y_test) = train_test_split(
         X,
         y,
         test_size=300,
@@ -72,8 +71,6 @@ def pregunta_03():
     # Importe GridSearchCV
     # Importe Pipeline
     # Importe OneHotEncoder
-   
-   
     from sklearn.compose import make_column_selector 
     from sklearn.compose import make_column_transformer
     from sklearn.feature_selection import SelectKBest 
@@ -93,7 +90,7 @@ def pregunta_03():
                 make_column_transformer(
                     (
                         OneHotEncoder(),
-                        make_column_selector(dtype_include=object), #Prueba si la columna es un String treaer nombres
+                        make_column_selector(dtype_include=object),
                     ),
                     remainder='passthrough',
                 ),
@@ -118,7 +115,7 @@ def pregunta_03():
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
     param_grid = {
-        'parameter_dict': range(1, 12),
+        'dict_select': range(1, 12),
     }
 
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
