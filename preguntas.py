@@ -70,15 +70,15 @@ def pregunta_03():
     # Importe GridSearchCV
     # Importe Pipeline
     # Importe OneHotEncoder
-    from sklearn.compose import make_column_selector 
+    from sklearn.preprocessing import OneHotEncoder
     from sklearn.compose import make_column_transformer
-    from sklearn.feature_selection import SelectKBest 
+    from sklearn.compose import make_column_selector
+    from sklearn.feature_selection import SelectKBest
     from sklearn.feature_selection import f_regression
     from sklearn.linear_model import LinearRegression
     from sklearn.model_selection import GridSearchCV
     from sklearn.pipeline import Pipeline
-    from sklearn.preprocessing import OneHotEncoder
-   
+
     pipeline = Pipeline(
         steps=[
             # Paso 1: Construya un column_transformer que aplica OneHotEncoder a las
@@ -91,7 +91,7 @@ def pregunta_03():
                         OneHotEncoder(),
                         make_column_selector(dtype_include=object),
                     ),
-                    remainder='passthrough',
+                    remainder="passthrough",
                 ),
             ),
             # Paso 2: Construya un selector de características que seleccione las K
@@ -102,7 +102,7 @@ def pregunta_03():
             ),
             # Paso 3: Construya un modelo de regresión lineal.
             (
-                "linear_regression",
+                "linearRegression",
                 LinearRegression(),
             ),
         ],
@@ -114,7 +114,7 @@ def pregunta_03():
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
     param_grid = {
-        'selectk_reg':[1,2,3,4,5,6,7,8,9,10,11],
+        'selectK_reg':[1,2,3,4,5,6,7,8,9,10,11],
     }
 
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
@@ -124,7 +124,7 @@ def pregunta_03():
         estimator=pipeline,
         param_grid=param_grid,
         cv=5,
-        scoring='neg_mean_squared_error',
+        scoring="neg_mean_squared_error",
         refit=True,
         return_train_score=True,
     )
