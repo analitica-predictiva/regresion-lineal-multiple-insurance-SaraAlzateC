@@ -23,7 +23,7 @@ def pregunta_01():
     y = df["charges"]
 
     # Asigne una copia del dataframe `df` a la variable `X`.
-    X = df.copy(deep=Flase)
+    X = df.copy(deep=False)
 
     # Remueva la columna `charges` del DataFrame `X`.
     X.drop("charges", inplace= True, axis=1) 
