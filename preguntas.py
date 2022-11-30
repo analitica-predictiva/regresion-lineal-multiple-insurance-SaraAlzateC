@@ -31,7 +31,6 @@ def pregunta_01():
     # Retorne `X` y `y`
     return X, y
 
-print(y.shape)
 def pregunta_02():
     """
     Preparación de los conjuntos de datos.
