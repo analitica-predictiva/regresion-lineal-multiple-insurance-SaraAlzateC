@@ -74,8 +74,8 @@ def pregunta_03():
     # Importe OneHotEncoder
    
    
-   
-    from sklearn import make_column_transformer, SelectKBest, f_regression, LinearRegression, GridSearchCV, Pipeline, OneHotEncoder       
+    from sklearn.compose import make_column_selector, make_column_transformer
+    from sklearn import SelectKBest, f_regression, LinearRegression, GridSearchCV, Pipeline, OneHotEncoder       
    
     pipeline = Pipeline(
         steps=[
